@@ -10,13 +10,16 @@ import java.util.List;
 @Component
 public class CarServiceImp implements CarService {
     
-    @Autowired
-    private CarDao carDao;
+    private final CarDao carDao;
+    
+    public CarServiceImp(CarDao carDao) {
+        this.carDao = carDao;
+    }
     
     @Override
     public List<Car> getCarsByCount(Integer num) {
         List<Car> list = getAllCars();
-        if (num == null || num < 0) num = 0;
+        if (num < 0) num = 0;
         if (num > list.size()) num = list.size();
         return list.subList(0, num);
     }

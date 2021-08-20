@@ -14,18 +14,22 @@ import java.util.List;
 @Controller
 public class CarController {
     
-    @Autowired
-    private CarService carService;
+    private final CarService carService;
+    
+    public CarController(CarService carService) {
+        this.carService = carService;
+    }
 
     @GetMapping(value = "/cars")
     public String printCars(
             ModelMap model,
-            @RequestParam(value = "count", required = false) Integer count
+            @RequestParam(
+                    value = "count",
+                    defaultValue = "0",
+                    required = false
+            ) Integer count
     ) {
-        List<String> list = new ArrayList<>();
-        carService.getCarsByCount(count).forEach(car -> list.add(car.toString()));
-        
-        model.addAttribute("cars", list);
+        model.addAttribute("cars", carService.getCarsByCount(count));
         return "cars";
     }
 }
