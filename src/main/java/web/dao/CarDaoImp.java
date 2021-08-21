@@ -13,12 +13,12 @@ public class CarDaoImp implements CarDao {
     public List<Car> getAllCars() {
         
         List<Car> carList = new ArrayList<>();
-        
-        carList.add(new Car("Nissan", "Qashqai", 1_500_000));
-        carList.add(new Car("Toyota", "RAV4", 2_000_000));
-        carList.add(new Car("Subaru", "Forester", 2_400_000));
-        carList.add(new Car("Mazda", "CX5", 2_200_000));
-        carList.add(new Car("Huyndai", "SantaFe", 2_500_000));
+    
+        carList.add(new Car("Subaru", "Forester", 3_300_000));
+        carList.add(new Car("Toyota", "RAV4", 3_000_000));
+        carList.add(new Car("Jeep", "Renegade", 2_700_000));
+        carList.add(new Car("Nissan", "X-Trail", 2_300_000));
+        carList.add(new Car("Renault", "Duster", 1_500_000));
         
         return carList;
     }
